@@ -8,10 +8,11 @@ import { CanceledError } from "axios";
         id : string
     }
     export interface Game {
-        id: number;
-        name: string;
-        background_image: string;
-        parent_platforms : {platform : Platform}[]
+      id: number;
+      name: string;
+      background_image: string;
+      parent_platforms: { platform: Platform }[];
+      metacritic: number;
     }
 
     interface Response {
