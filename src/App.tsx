@@ -11,12 +11,18 @@ function App() {
         base: `"nav" "main"`,
         lg: `"nav nav" "aside main"`,
       }}
+      templateColumns={
+        {
+          base: '1fr',
+          lg : '200px 1fr'
+        }
+      }
     >
       <GridItem area="nav" bg="#55DDDD">
         <NavBar></NavBar>
       </GridItem>
       <Show above="lg">
-        <GridItem area="aside" >
+        <GridItem paddingX={2} area="aside" >
           <GenresList />
         </GridItem>
       </Show>

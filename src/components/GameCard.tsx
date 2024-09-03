@@ -9,7 +9,7 @@ interface Prop{
 
 export default function GameCard({game} : Prop) {
   return (
-    <Card height='300px'>
+    <Card >
       <Image src={game.background_image}></Image>
       <CardBody>
         <Heading fontSize="2xl">{game.name}</Heading>
