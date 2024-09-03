@@ -31,11 +31,6 @@ function GameCardIcon({ platforms }: Props) {
       };
     return (
         <>
-            {console.log(platforms.map((platform) =>
-            (
-                platform.slug
-                       
-            )))}
             <HStack>
                 {platforms.map((platform) =>
                 (
