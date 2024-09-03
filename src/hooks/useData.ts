@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import apiClientGame from "../services/api-client-game";
-import { CanceledError } from "axios";
+import { AxiosRequestConfig, CanceledError } from "axios";
 
 
 interface FetchResponse<T>{
@@ -8,7 +8,7 @@ interface FetchResponse<T>{
     results : T[]
 }
 
-export const useData = <T>(endpoint : string) => {
+export const useData = <T>(endpoint : string, requestConfig ?: AxiosRequestConfig, deps?: any[]) => {
     
   const [data, setData] = useState<T[]>([]);
   const [error, setError] = useState("");
@@ -19,7 +19,7 @@ export const useData = <T>(endpoint : string) => {
     const controller = new AbortController();
 
     apiClientGame
-      .get<FetchResponse<T>>(endpoint, { signal: controller.signal })
+      .get<FetchResponse<T>>(endpoint, { signal: controller.signal, ...requestConfig})
       .then((res) => {
         setData(res.data.results);
         setLoading(false);
@@ -31,7 +31,7 @@ export const useData = <T>(endpoint : string) => {
       });
 
     return () => controller.abort();
-  }, []);
+  }, deps ? [...deps] : []);
 
   return { data, error, isLoading };
 };
