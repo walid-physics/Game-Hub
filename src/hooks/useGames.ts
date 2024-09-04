@@ -4,7 +4,7 @@ import { Genre } from "./useGenres";
     export interface Platform {
       slug: string;
       name: string;
-      id: string;
+      id: number;
     }
     export interface Game {
       id: number;
