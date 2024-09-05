@@ -16,9 +16,16 @@ import { Genre } from "./useGenres";
 
    
 
-const useGames = (selectedGenre: Genre | null) =>
-  useData<Game>("/games", { params: { genres: selectedGenre?.id } }, [
-    selectedGenre?.id,
-  ]);
+const useGames = (
+  selectedGenre: Genre | null,
+  parentPlatformId?: Platform | undefined
+) =>
+  useData<Game>(
+    "/games",
+    {
+      params: { genres: selectedGenre?.id, parent_platforms: parentPlatformId?.id },
+    },
+    [selectedGenre?.id, parentPlatformId?.id]
+  );
 
 export default useGames;
