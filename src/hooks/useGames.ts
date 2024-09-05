@@ -1,11 +1,8 @@
+import { GameQuery } from "../components/GameGrid";
 import { useData } from "./useData";
-import { Genre } from "./useGenres";
+import { Platform } from "./usePlatforms";
 
-    export interface Platform {
-      slug: string;
-      name: string;
-      id: number;
-    }
+
     export interface Game {
       id: number;
       name: string;
@@ -17,15 +14,14 @@ import { Genre } from "./useGenres";
    
 
 const useGames = (
-  selectedGenre: Genre | null,
-  parentPlatformId?: Platform | undefined
+  gameQuery : GameQuery
 ) =>
   useData<Game>(
     "/games",
     {
-      params: { genres: selectedGenre?.id, parent_platforms: parentPlatformId?.id },
+      params: { genres: gameQuery.selectedGenre?.id, parent_platforms: gameQuery.platform?.id },
     },
-    [selectedGenre?.id, parentPlatformId?.id]
+    [gameQuery]
   );
 
 export default useGames;
