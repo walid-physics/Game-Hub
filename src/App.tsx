@@ -32,8 +32,13 @@ function App() {
         lg: "200px 1fr",
       }}
     >
-      <GridItem area="nav" bg="#222233">
-        <NavBar searchValue={gameQuery.searchValue} setSearchValue={(searchValue) => setGameQuery({...gameQuery, searchValue : searchValue})}></NavBar>
+      <GridItem area="nav" bg="#121212">
+        <NavBar
+          searchValue={gameQuery.searchValue}
+          setSearchValue={(searchValue) =>
+            setGameQuery({ ...gameQuery, searchValue: searchValue })
+          }
+        ></NavBar>
       </GridItem>
       <Show above="lg">
         <GridItem paddingY={3} paddingX={2} area="aside">
@@ -46,16 +51,24 @@ function App() {
         </GridItem>
       </Show>
       <GridItem area="main">
-        <GameHeading genre={gameQuery.selectedGenre} platform={gameQuery.platform}/>
-        <HStack spacing={3} paddingLeft={7} paddingTop={3}>
-        <PlatformSelector
-          selectedPlatform={gameQuery?.platform}
-          selectPlatform={(platform) =>
-            setGameQuery({ ...gameQuery, platform: platform })
-          }
+        <GameHeading
+          genre={gameQuery.selectedGenre}
+          platform={gameQuery.platform}
         />
-          <OrderBy orderType={gameQuery.sortType} orderBy={(orderType) => setGameQuery({...gameQuery, sortType : orderType})}/>
-          </HStack>
+        <HStack spacing={3} paddingLeft={7} paddingTop={3}>
+          <PlatformSelector
+            selectedPlatform={gameQuery?.platform}
+            selectPlatform={(platform) =>
+              setGameQuery({ ...gameQuery, platform: platform })
+            }
+          />
+          <OrderBy
+            orderType={gameQuery.sortType}
+            orderBy={(orderType) =>
+              setGameQuery({ ...gameQuery, sortType: orderType })
+            }
+          />
+        </HStack>
         <GameGrid gameQuery={gameQuery} />
       </GridItem>
     </Grid>
