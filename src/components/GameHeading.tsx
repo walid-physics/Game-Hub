@@ -1,4 +1,4 @@
-import { Box, Heading, Text } from '@chakra-ui/react';
+import { Heading } from '@chakra-ui/react';
 import { Genre } from '../hooks/useGenres';
 import { Platform } from '../hooks/usePlatforms';
 
