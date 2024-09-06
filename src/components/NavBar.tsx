@@ -13,7 +13,7 @@ function NavBar({ searchValue, setSearchValue }: Props) {
   return (
     <HStack padding="10px" justifyContent="space-between">
       <Image borderRadius="10px" boxSize="60px" src={logo}></Image>
-      <Box width="80%">
+      <Box width="70%">
         <SearchBar setSearchValue={setSearchValue} searchValue={searchValue} />
       </Box>
       <ColorModeSwitch />

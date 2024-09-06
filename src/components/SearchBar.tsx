@@ -7,7 +7,7 @@ import {
   Box,
 } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 interface Props{
     searchValue : string
@@ -17,25 +17,31 @@ interface Props{
 
 const SearchBar = ({ searchValue, setSearchValue }: Props) => {
     const [search, setSearch] = useState('');
+    const ref = useRef<HTMLInputElement>(null);
   return (
-    <Box p={4}>
+      <form
+          onSubmit={(event) =>
+          {
+              event.preventDefault();
+              if (ref.current) setSearchValue(ref.current.value);
+          }
+      }
+      >
       <InputGroup>
         <InputLeftElement pointerEvents="none">
           <Icon as={SearchIcon} color="gray.300" />
         </InputLeftElement>
         <Input
-          onChange={(event) => {
-            setSearchValue(event.target.value);
-            setSearch(event.target.value);
-                  }}
-            borderRadius={10}
+          ref={ref}
+          
+          borderRadius={10}
           placeholder="Search..."
           variant="outline"
           focusBorderColor="teal.500"
-          value={search}
+          //value={ref.current?.value}
         />
       </InputGroup>
-    </Box>
+    </form>
   );
 };
 
