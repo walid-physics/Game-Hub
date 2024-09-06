@@ -1,5 +1,5 @@
 
-import { useData } from "./useData"
+import genres from "../data/genres";
 
 export interface Genre {
   id: number;
@@ -7,5 +7,5 @@ export interface Genre {
   image_background : string
 }
 
-export const useGenres = () => useData<Genre>('/genres');
+export const useGenres = () => { return { data: genres.results, error: null, isLoading: false } };
     

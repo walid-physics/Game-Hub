@@ -10,16 +10,16 @@ interface Prop{
 
 export default function GameCard({game} : Prop) {
   return (
-    <Card >
+    <Card>
       <Image src={getCroppedImageUrl(game.background_image)}></Image>
       <CardBody>
-        <Heading fontSize="2xl">{game.name}</Heading>
-        <HStack justifyContent='space-between'>
+        <HStack justifyContent="space-between">
           <GameCardIcon
             platforms={game.parent_platforms?.map((plat) => plat.platform)}
           />
-          <Ratings rating={game.metacritic}/>
+          <Ratings rating={game.metacritic} />
         </HStack>
+        <Heading fontSize="2xl">{game.name}</Heading>
       </CardBody>
     </Card>
   );
