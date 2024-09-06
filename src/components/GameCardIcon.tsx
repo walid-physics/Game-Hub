@@ -1,4 +1,4 @@
-import { Platform } from "../hooks/useGames";
+
 import { FaXbox } from "react-icons/fa6";
 import {
   FaWindows,
@@ -12,6 +12,7 @@ import { SiNintendo } from "react-icons/si";
 import { BsGlobe } from "react-icons/bs";
 import { HStack, Icon } from "@chakra-ui/react";
 import { IconType } from "react-icons";
+import { Platform } from "../hooks/usePlatforms";
 
 interface Props {
   platforms: Platform[];
@@ -32,7 +33,7 @@ function GameCardIcon({ platforms }: Props) {
     return (
         <>
             <HStack>
-                {platforms.map((platform) =>
+                {platforms?.map((platform) =>
                 (
                     <Icon
                         key={platform.id}

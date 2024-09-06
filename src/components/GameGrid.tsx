@@ -4,13 +4,10 @@ import useGames from "../hooks/useGames";
 import GameCard from "./GameCard";
 import SkeletonCard from "./SkeletonCard";
 import GameCardContainer from "./GameCardContainer";
-import { Genre } from "../hooks/useGenres";
-import { Platform } from "../hooks/usePlatforms";
 
-export interface GameQuery{
-  selectedGenre : Genre | null;
-  platform ?: Platform;
-}
+import { GameQuery } from "../App";
+
+
 
 interface Props {
   gameQuery : GameQuery
