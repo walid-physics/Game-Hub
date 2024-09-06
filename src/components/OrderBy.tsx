@@ -15,13 +15,13 @@ interface Props{
 export const OrderBy = ({ orderBy, orderType } : Props) => {
     
   const orderTypes = [
-    { value: "released", label: "released" },
-    { value: "name", label: "name" },
-    { value: "added", label: "added" },
-    { value: "-rating", label: "rating" },
-    { value: "created", label: "created" },
-    { value: "-metacritic", label: "metacritic" },
-    { value: "updated", label: "updated" },
+    { value: "released", label: "Released" },
+    { value: "name", label: "Name" },
+    { value: "added", label: "Added" },
+    { value: "-rating", label: "Rating" },
+    { value: "created", label: "Created" },
+    { value: "-metacritic", label: "Metacritic" },
+    { value: "updated", label: "Updated" },
   ];
     
   return (
