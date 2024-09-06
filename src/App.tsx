@@ -32,7 +32,7 @@ function App() {
         lg: "200px 1fr",
       }}
     >
-      <GridItem area="nav" bg="#121212">
+      <GridItem area="nav" >
         <NavBar
           searchValue={gameQuery.searchValue}
           setSearchValue={(searchValue) =>
