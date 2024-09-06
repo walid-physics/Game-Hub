@@ -1,5 +1,5 @@
 
-import { Button, HStack, Heading, Image, List, ListItem, Spinner } from '@chakra-ui/react';
+import { Button, HStack, Heading, Image, List, ListItem} from '@chakra-ui/react';
 import { Genre, useGenres } from '../hooks/useGenres'
 import getCroppedImageUrl from '../services/image-url';
 
@@ -11,7 +11,7 @@ interface Props {
 
 
 export const GenresList = ({setGenre, selectedGenre}: Props) => {
-  const { data, error, isLoading } = useGenres();
+  const { data } = useGenres();
   
 
     // if (error) return null;

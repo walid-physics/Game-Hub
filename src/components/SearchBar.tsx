@@ -4,10 +4,9 @@ import {
   InputGroup,
   InputLeftElement,
   Icon,
-  Box,
 } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
-import { useRef, useState } from "react";
+import { useRef} from "react";
 
 interface Props{
     searchValue : string
@@ -15,8 +14,8 @@ interface Props{
 }
 
 
-const SearchBar = ({ searchValue, setSearchValue }: Props) => {
-    const [search, setSearch] = useState('');
+const SearchBar = ({ setSearchValue }: Props) => {
+   // const [search, setSearch] = useState('');
     const ref = useRef<HTMLInputElement>(null);
   return (
       <form
